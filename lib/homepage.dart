@@ -43,8 +43,6 @@ class _HomepageState extends State<Homepage> {
 
   @override
   Widget build(BuildContext context) {
-
-    //groupMyList();
     return Scaffold(
         body: SafeArea(
           child: Container(
@@ -72,24 +70,6 @@ class _HomepageState extends State<Homepage> {
                     top: 80.0,
                     bottom: 32.0,
                   ),
-                  /*child: ListView.separated(
-                    itemCount: contacts.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return TaskCardWidget(
-                          name: contacts[index].name,
-                          surname: contacts[index].surname,
-                          work: contacts[index].work,
-                          image: contacts[index].image
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      if(contacts[index].surname[0].toLowerCase() != contacts[index + 1].surname[0].toLowerCase()){
-                        //Text(contacts[index + 1].surname[0]);
-                        return Divider(color: Color(0x00000000), height: 20,);
-                      }
-                      return Divider(color: Color(0x00000000), height: 0,);
-                    },
-                  ),*/
                   child: GroupListView(
                     sectionsCount: groupedLists.keys.toList().length,
                     countOfItemInSection: (int section) {

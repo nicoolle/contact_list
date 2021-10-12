@@ -14,7 +14,6 @@ class TaskCardWidget extends StatelessWidget {
     required this.work,
     required this.image} );
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -89,10 +88,9 @@ class _LikedContactsState extends State<LikedContacts> {
   void _toggleFavorite() {
     setState(() {
       if (_isLiked) {
-
         _isLiked = false;
-      } else {
-
+      }
+      else {
         _isLiked = true;
       }
     });
@@ -103,7 +101,6 @@ class _LikedContactsState extends State<LikedContacts> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          //padding: const EdgeInsets.all(right: 5.0),
           margin: EdgeInsets.only(
             right: 15.0,
             left: 0.0,
