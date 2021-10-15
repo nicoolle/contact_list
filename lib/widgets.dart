@@ -2,19 +2,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'contacts_list.dart';
+import 'detail_widget.dart';
 
 class TaskCardWidget extends StatelessWidget {
+  final String id;
   final String name;
   final String surname;
   final String work;
   final String image;
+  final String bio;
   TaskCardWidget({
+    required this.id,
     required this.name,
     required this.surname,
     required this.work,
-    required this.image} );
+    required this.image,
+    required this.bio
+  } );
 
   @override
+  //final args = ModalRoute.of(context)!.settings.arguments as Contact;
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
@@ -33,9 +40,29 @@ class TaskCardWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           LikedContacts(),
-          CircleAvatar(
-            backgroundImage: AssetImage(image),
-            radius: 30,
+          GestureDetector (
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      DetailScreen(
+                          contact: Contact(
+                              id,
+                              name,
+                              surname,
+                              work,
+                              image,
+                              bio
+                          )
+                      ),
+                ),
+              );
+            },
+            child: CircleAvatar(
+              backgroundImage: AssetImage(image),
+              radius: 30,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(4.0),
