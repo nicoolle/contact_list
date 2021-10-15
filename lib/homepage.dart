@@ -13,15 +13,15 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   final List<Contact> contacts = [
-    Contact('Nicole ', 'Kozmanko', 'Some work', 'assets/images/nicole.jpg'),
-    Contact('Marichka ', 'Natalchuk', 'Some work', 'assets/images/marichka.jpg'),
-    Contact('Alina ', 'Koziychuk', 'KeyToTech', 'assets/images/alja.jpg'),
-    Contact('Lesya ', 'Smyrnova', 'GlobalLogic', 'assets/images/lesya.jpg'),
-    Contact('Yarema ','Vuyiv', 'N-ix', 'assets/images/yarema.jpg'),
-    Contact('Denys ', 'Nazarko', 'Epam', 'assets/images/den.jpg'),
-    Contact('Dmytro ', 'Tymkiv', 'SoftServe', 'assets/images/dima.jpg'),
-    Contact('Sofija ', 'Matviishyn', 'N-ix', 'assets/images/sofija.jpg'),
-    Contact('Roma ', 'Tkach', 'Inoxoft', 'assets/images/roma.jpg'),
+    Contact('1', 'Nicole ', 'Kozmanko', 'Some work', 'assets/images/nicole.jpg', 'SOOme bio about nicole'),
+    Contact('2', 'Marichka ', 'Hapatyn', 'Some work', 'assets/images/marichka.jpg', 'SOOme bio about marichka'),
+    Contact('3', 'Alina ', 'Koziychuk', 'KeyToTech', 'assets/images/alja.jpg', 'SOOme bio about alina'),
+    Contact('4', 'Lesya ', 'Smyrnova', 'GlobalLogic', 'assets/images/lesya.jpg', 'SOOme bio about lesja'),
+    Contact('5', 'Yarema ','Vuyiv', 'N-ix', 'assets/images/yarema.jpg', 'SOOme bio about yarema'),
+    Contact('6', 'Denys ', 'Nazarko', 'Epam', 'assets/images/den.jpg', 'SOOme bio about den'),
+    Contact('7', 'Dmytro ', 'Tymkiv', 'SoftServe', 'assets/images/dima.jpg', 'SOOme bio about dima'),
+    Contact('8','Sofija ', 'Matviishyn', 'N-ix', 'assets/images/sofija.jpg', 'SOOme bio about sofa'),
+    Contact('9', 'Roma ', 'Tkach', 'Inoxoft', 'assets/images/roma.jpg', 'SOOme bio about roma'),
   ];
 
   _HomepageState() {
@@ -77,10 +77,12 @@ class _HomepageState extends State<Homepage> {
                     },
                     itemBuilder: (BuildContext context, IndexPath index) {
                       return TaskCardWidget(
+                          id: groupedLists.values.toList()[index.section][index.index].id,
                           name: groupedLists.values.toList()[index.section][index.index].name,
                           surname: groupedLists.values.toList()[index.section][index.index].surname,
                           work: groupedLists.values.toList()[index.section][index.index].work,
-                          image: groupedLists.values.toList()[index.section][index.index].image
+                          image: groupedLists.values.toList()[index.section][index.index].image,
+                          bio: groupedLists.values.toList()[index.section][index.index].bio,
                       );
                     },
                     groupHeaderBuilder: (BuildContext context, int section) {
