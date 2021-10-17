@@ -1,10 +1,11 @@
 class Contact {
   final String id;
-  final String name;
-  final String surname;
-  final String work;
+  String name;
+  String surname;
+  String work;
   final String image;
-  final String bio;
+  String bio;
+  String phone;
 
-  Contact(this.id, this.name, this.surname, this.work, this.image, this.bio){}
+  Contact(this.id, this.name, this.surname, this.work, this.image, this.bio, this.phone){}
 }

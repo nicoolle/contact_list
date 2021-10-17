@@ -13,15 +13,15 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   final List<Contact> contacts = [
-    Contact('1', 'Nicole ', 'Kozmanko', 'Some work', 'assets/images/nicole.jpg', 'SOOme bio about nicole'),
-    Contact('2', 'Marichka ', 'Hapatyn', 'Some work', 'assets/images/marichka.jpg', 'SOOme bio about marichka'),
-    Contact('3', 'Alina ', 'Koziychuk', 'KeyToTech', 'assets/images/alja.jpg', 'SOOme bio about alina'),
-    Contact('4', 'Lesya ', 'Smyrnova', 'GlobalLogic', 'assets/images/lesya.jpg', 'SOOme bio about lesja'),
-    Contact('5', 'Yarema ','Vuyiv', 'N-ix', 'assets/images/yarema.jpg', 'SOOme bio about yarema'),
-    Contact('6', 'Denys ', 'Nazarko', 'Epam', 'assets/images/den.jpg', 'SOOme bio about den'),
-    Contact('7', 'Dmytro ', 'Tymkiv', 'SoftServe', 'assets/images/dima.jpg', 'SOOme bio about dima'),
-    Contact('8','Sofija ', 'Matviishyn', 'N-ix', 'assets/images/sofija.jpg', 'SOOme bio about sofa'),
-    Contact('9', 'Roma ', 'Tkach', 'Inoxoft', 'assets/images/roma.jpg', 'SOOme bio about roma'),
+    Contact('1', 'Nicole ', 'Kozmanko', 'Some work', 'assets/images/nicole.jpg', 'SOOme bio about nicole', '05094834'),
+    Contact('2', 'Marichka ', 'Hapatyn', 'Some work', 'assets/images/marichka.jpg', 'SOOme bio about marichka', '598490294'),
+    Contact('3', 'Alina ', 'Koziychuk', 'KeyToTech', 'assets/images/alja.jpg', 'SOOme bio about alina', '040349489'),
+    Contact('4', 'Lesya ', 'Smyrnova', 'GlobalLogic', 'assets/images/lesya.jpg', 'SOOme bio about lesja', '048590300'),
+    Contact('5', 'Yarema ','Vuyiv', 'N-ix', 'assets/images/yarema.jpg', 'SOOme bio about yarema', '94380444'),
+    Contact('6', 'Denys ', 'Nazarko', 'Epam', 'assets/images/den.jpg', 'SOOme bio about den', '9843974930'),
+    Contact('7', 'Dmytro ', 'Tymkiv', 'SoftServe', 'assets/images/dima.jpg', 'SOOme bio about dima', '04384589'),
+    Contact('8','Sofija ', 'Matviishyn', 'N-ix', 'assets/images/sofija.jpg', 'SOOme bio about sofa', '3954985'),
+    Contact('9', 'Roma ', 'Tkach', 'Inoxoft', 'assets/images/roma.jpg', 'SOOme bio about roma', '3805050'),
   ];
 
   _HomepageState() {
@@ -83,6 +83,17 @@ class _HomepageState extends State<Homepage> {
                           work: groupedLists.values.toList()[index.section][index.index].work,
                           image: groupedLists.values.toList()[index.section][index.index].image,
                           bio: groupedLists.values.toList()[index.section][index.index].bio,
+                          phone: groupedLists.values.toList()[index.section][index.index].phone,
+                          onEditContact: (Contact contact) {
+                            setState((){
+                              var index = contacts.indexWhere((element) => element.id == contact.id);
+                              contacts[index].name = contact.name;
+                              contacts[index].surname = contact.surname;
+                              contacts[index].work = contact.work;
+                              contacts[index].bio = contact.bio;
+
+                            });
+                          },
                       );
                     },
                     groupHeaderBuilder: (BuildContext context, int section) {
