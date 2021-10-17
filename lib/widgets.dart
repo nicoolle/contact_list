@@ -11,14 +11,18 @@ class TaskCardWidget extends StatelessWidget {
   final String work;
   final String image;
   final String bio;
+  final String phone;
+  final Function(Contact) onEditContact;
   TaskCardWidget({
     required this.id,
     required this.name,
     required this.surname,
     required this.work,
     required this.image,
-    required this.bio
-  } );
+    required this.bio,
+    required this.phone,
+    required this.onEditContact
+  });
 
   @override
   //final args = ModalRoute.of(context)!.settings.arguments as Contact;
@@ -53,8 +57,12 @@ class TaskCardWidget extends StatelessWidget {
                               surname,
                               work,
                               image,
-                              bio
-                          )
+                              bio,
+                              phone,
+                          ),
+                        onEditContact: (Contact _contact){
+                            onEditContact(_contact);
+                        },
                       ),
                 ),
               );
