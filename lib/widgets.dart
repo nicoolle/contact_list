@@ -71,37 +71,33 @@ class TaskCardWidget extends StatelessWidget {
               radius: 30,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      name,
-                      style: TextStyle(
-                        color: Color(0xFF211551),
-                        fontSize: 22.0,
-                        fontWeight: FontWeight.bold,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          '$name $surname',
+                          style: TextStyle(
+                            color: Color(0xFF211551),
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                    ),
-                    Text(
-                      ' $surname',
-                      style: TextStyle(
-                        color: Color(0xFF211551),
-                        fontSize: 22.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                Text(
-                  work,
-                  style: TextStyle(
-                    color: Colors.grey[500],
+                    ],
                   ),
-                ),
-              ],
+                  Text(
+                    work,
+                    style: TextStyle(
+                      color: Colors.grey[500],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
