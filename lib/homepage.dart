@@ -41,6 +41,29 @@ class _HomepageState extends State<Homepage> {
     });
   }
 
+  _contact(IndexPath index) {
+    var _contact = groupedLists.values.toList()[index.section][index.index];
+    return TaskCardWidget(
+      id: _contact.id,
+      name: _contact.name,
+      surname: _contact.surname,
+      work: _contact.work,
+      image: _contact.image,
+      bio: _contact.bio,
+      phone: _contact.phone,
+        onEditContact: (Contact contact) {
+          setState(() {
+            var index = contacts.indexWhere((element) =>
+            element.id == contact.id);
+            contacts[index].name = contact.name;
+            contacts[index].surname = contact.surname;
+            contacts[index].work = contact.work;
+            contacts[index].bio = contact.bio;
+          });
+        }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,25 +100,7 @@ class _HomepageState extends State<Homepage> {
                       return groupedLists.values.toList()[section].length;
                     },
                     itemBuilder: (BuildContext context, IndexPath index) {
-                      return TaskCardWidget(
-                          id: groupedLists.values.toList()[index.section][index.index].id,
-                          name: groupedLists.values.toList()[index.section][index.index].name,
-                          surname: groupedLists.values.toList()[index.section][index.index].surname,
-                          work: groupedLists.values.toList()[index.section][index.index].work,
-                          image: groupedLists.values.toList()[index.section][index.index].image,
-                          bio: groupedLists.values.toList()[index.section][index.index].bio,
-                          phone: groupedLists.values.toList()[index.section][index.index].phone,
-                          onEditContact: (Contact contact) {
-                            setState((){
-                              var index = contacts.indexWhere((element) => element.id == contact.id);
-                              contacts[index].name = contact.name;
-                              contacts[index].surname = contact.surname;
-                              contacts[index].work = contact.work;
-                              contacts[index].bio = contact.bio;
-
-                            });
-                          },
-                      );
+                      return _contact(index);
                     },
                     groupHeaderBuilder: (BuildContext context, int section) {
                       return Padding(
