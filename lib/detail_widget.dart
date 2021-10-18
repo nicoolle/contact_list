@@ -72,7 +72,7 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('hey'),
+        title: Text('Edit ${contact.name}'),
       ),
       body: Column(
         children: [
