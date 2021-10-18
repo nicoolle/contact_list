@@ -25,7 +25,6 @@ class TaskCardWidget extends StatelessWidget {
   });
 
   @override
-  //final args = ModalRoute.of(context)!.settings.arguments as Contact;
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,

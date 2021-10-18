@@ -5,7 +5,7 @@ class DetailScreen extends StatefulWidget {
   const DetailScreen({
     required this.contact,
     required this.onEditContact,
-  }); // : super(key: key);
+  });
   final Contact contact;
   final Function(Contact) onEditContact;
 
@@ -53,14 +53,12 @@ class _DetailScreenState extends State<DetailScreen> {
     setState(() => contact.phone = text);
   }
 
-
   editContact(Contact contact){
     var newName;
     var newSurname;
     var newWork;
     var newBio;
     var newPhone;
-    //Contact updatedContact = openExistingContact(widget.contact);
     setState(() {
       widget.contact.name = newName;
       widget.contact.surname = newSurname;
@@ -69,12 +67,6 @@ class _DetailScreenState extends State<DetailScreen> {
       widget.contact.surname = newPhone;
     });
   }
-/*
-  void editName() {
-    setState(() {
-
-    });
-  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -86,35 +78,30 @@ class _DetailScreenState extends State<DetailScreen> {
         children: [
           TextField(
               controller: nameController,
-              //initialValue: contact.name + contact.surname,
               style: TextStyle(fontSize: 17),
               onChanged: _changeName,
               decoration: const InputDecoration(labelText: 'Name:'),
           ),
           TextField(
             controller: surnameController,
-            //initialValue: contact.name + contact.surname,
             style: TextStyle(fontSize: 17),
             onChanged: _changeSurname,
             decoration: const InputDecoration(labelText: 'Surname:'),
           ),
           TextField(
             controller: workController,
-            //initialValue: contact.name + contact.surname,
             style: TextStyle(fontSize: 17),
             onChanged: _changeWork,
             decoration: const InputDecoration(labelText: 'Work:'),
           ),
           TextField(
             controller: bioController,
-            //initialValue: contact.name + contact.surname,
             style: TextStyle(fontSize: 17),
             onChanged: _changeBio,
             decoration: const InputDecoration(labelText: 'Bio:'),
           ),
           TextField(
             controller: phoneController,
-            //initialValue: contact.name + contact.surname,
             style: TextStyle(fontSize: 17),
             onChanged: _changePhone,
             decoration: const InputDecoration(labelText: 'Phone:'),
