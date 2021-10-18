@@ -86,7 +86,7 @@ class TaskCardWidget extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      surname,
+                      ' $surname',
                       style: TextStyle(
                         color: Color(0xFF211551),
                         fontSize: 22.0,
