@@ -76,7 +76,7 @@ class _HomepageState extends State<Homepage> {
             child: Stack(
               children: [
                 Container(
-                  child: Text(
+                  child: const Text(
                     'My contacts',
                     style: TextStyle(
                       color: Color(0xFF211551),
@@ -84,13 +84,13 @@ class _HomepageState extends State<Homepage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  margin: EdgeInsets.only(
+                  margin: const EdgeInsets.only(
                     top: 32.0,
                     bottom: 32.0,
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(
+                  margin: const EdgeInsets.only(
                     top: 80.0,
                     bottom: 32.0,
                   ),
@@ -107,7 +107,7 @@ class _HomepageState extends State<Homepage> {
                         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                         child: Text(
                           groupedLists.keys.toList()[section],
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                         ),
                       );
                     },
