@@ -70,62 +70,64 @@ class _DetailScreenState extends State<DetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
-        title: Text('Edit ${contact.name}'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          children: [
-            CircleAvatar(
-              backgroundImage: AssetImage(contact.image),
-              radius: 60,
-            ),
-            TextField(
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          backgroundColor: Colors.blueGrey,
+          title: Text('Edit ${contact.name}'),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            children: [
+              CircleAvatar(
+                backgroundImage: AssetImage(contact.image),
+                radius: 60,
+              ),
+              TextField(
                 controller: nameController,
                 style: TextStyle(fontSize: 17),
                 onChanged: _changeName,
                 decoration: const InputDecoration(labelText: 'Name:'),
-            ),
-            TextField(
-              controller: surnameController,
-              style: TextStyle(fontSize: 17),
-              onChanged: _changeSurname,
-              decoration: const InputDecoration(labelText: 'Surname:'),
-            ),
-            TextField(
-              controller: workController,
-              style: TextStyle(fontSize: 17),
-              onChanged: _changeWork,
-              decoration: const InputDecoration(labelText: 'Work:'),
-            ),
-            TextField(
-              controller: bioController,
-              style: TextStyle(fontSize: 17),
-              onChanged: _changeBio,
-              decoration: const InputDecoration(labelText: 'Bio:'),
-            ),
-            TextField(
-              controller: phoneController,
-              style: TextStyle(fontSize: 17),
-              onChanged: _changePhone,
-              decoration: const InputDecoration(labelText: 'Phone:'),
-            ),
-
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: Colors.blueGrey
               ),
-              child: Text('Done'),
-              onPressed: () => {
-                widget.onEditContact(widget.contact),
-                Navigator.of(context).pop(editContact)
-              },
-            )
-          ],
+              TextField(
+                controller: surnameController,
+                style: TextStyle(fontSize: 17),
+                onChanged: _changeSurname,
+                decoration: const InputDecoration(labelText: 'Surname:'),
+              ),
+              TextField(
+                controller: workController,
+                style: TextStyle(fontSize: 17),
+                onChanged: _changeWork,
+                decoration: const InputDecoration(labelText: 'Work:'),
+              ),
+              TextField(
+                controller: bioController,
+                style: TextStyle(fontSize: 17),
+                onChanged: _changeBio,
+                decoration: const InputDecoration(labelText: 'Bio:'),
+              ),
+              TextField(
+                controller: phoneController,
+                style: TextStyle(fontSize: 17),
+                onChanged: _changePhone,
+                decoration: const InputDecoration(labelText: 'Phone:'),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(primary: Colors.blueGrey),
+                child: Text('Done'),
+                onPressed: () => {
+                  widget.onEditContact(widget.contact),
+                  Navigator.of(context).pop(editContact)
+                },
+              )
+            ],
+          ),
         ),
       ),
     );
