@@ -1,9 +1,9 @@
 import 'package:contacts/entities/contacts_list.dart';
+import 'package:contacts/entities/contacts_mocked_data.dart';
 import 'package:contacts/widgets/contact_field.dart';
 import 'package:flutter/material.dart';
 import 'package:group_list_view/group_list_view.dart';
 
-import '../entities/contacts_mocked_data.dart';
 import 'liked_contacts_screen.dart';
 
 class Homepage extends StatefulWidget {

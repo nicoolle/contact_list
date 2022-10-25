@@ -1,6 +1,6 @@
+import 'package:contacts/entities/contacts_list.dart';
 import 'package:contacts/widgets/text_field.dart';
 import 'package:flutter/material.dart';
-import '../entities/contacts_list.dart';
 
 class EditContactScreen extends StatefulWidget {
   const EditContactScreen({
