@@ -1,24 +1,35 @@
-import 'package:flutter/cupertino.dart';
+import 'package:contacts/entities/contacts_list.dart';
 import 'package:flutter/material.dart';
 
 class LikedContacts extends StatefulWidget {
-  const LikedContacts({Key? key}) : super(key: key);
+  final Contact contact;
+  final Function(Contact) onEditContact;
+  bool isLiked;
+  LikedContacts({Key? key, required this.contact,
+    required this.onEditContact, required this.isLiked}) : super(key: key);
 
   @override
   _LikedContactsState createState() => _LikedContactsState();
 }
 
 class _LikedContactsState extends State<LikedContacts> {
-  bool _isLiked = false;
-  void _toggleFavorite() {
+  bool isLiked = false;
+
+  void _toggleFavorite() async {
     setState(() {
-      if (_isLiked) {
-        _isLiked = false;
+      if (widget.isLiked) {
+        widget.isLiked = false;
+        isLiked = false;
       }
       else {
-        _isLiked = true;
+        widget.isLiked = true;
+        isLiked = true;
       }
     });
+    setState(() {
+      widget.contact.isLiked = isLiked;
+    });
+    widget.onEditContact(widget.contact);
   }
 
   @override
@@ -34,7 +45,7 @@ class _LikedContactsState extends State<LikedContacts> {
           child: IconButton(
             padding: const EdgeInsets.all(0),
             alignment: Alignment.centerRight,
-            icon: (_isLiked
+            icon: (widget.isLiked
                 ? const Icon(Icons.star)
                 : const Icon(Icons.star_border)),
             color: Colors.red[500],
