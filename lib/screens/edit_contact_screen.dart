@@ -1,9 +1,9 @@
 import 'package:contacts/widgets/text_field.dart';
 import 'package:flutter/material.dart';
-import 'contacts_list.dart';
+import '../entities/contacts_list.dart';
 
-class DetailScreen extends StatefulWidget {
-  const DetailScreen({
+class EditContactScreen extends StatefulWidget {
+  const EditContactScreen({
     required this.contact,
     required this.onEditContact,
   });
@@ -12,13 +12,13 @@ class DetailScreen extends StatefulWidget {
   final Function(Contact) onEditContact;
 
   @override
-  _DetailScreenState createState() => _DetailScreenState(contact: contact);
+  _EditContactScreenState createState() => _EditContactScreenState(contact: contact);
 }
 
-class _DetailScreenState extends State<DetailScreen> {
+class _EditContactScreenState extends State<EditContactScreen> {
   final Contact contact;
 
-  _DetailScreenState({required this.contact});
+  _EditContactScreenState({required this.contact});
 
   late TextEditingController nameController;
   late TextEditingController surnameController;

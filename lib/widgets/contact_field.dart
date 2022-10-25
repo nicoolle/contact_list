@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-import 'contacts_list.dart';
-import 'detail_widget.dart';
+import '../entities/contacts_list.dart';
+import '../screens/edit_contact_screen.dart';
 
 class ContactField extends StatefulWidget {
   final String id;
@@ -19,14 +19,14 @@ class ContactField extends StatefulWidget {
 
   ContactField(
       {required this.id,
-      required this.name,
-      required this.surname,
-      required this.work,
-      required this.image,
-      required this.bio,
-      required this.phone,
-      required this.isLiked,
-      required this.onEditContact});
+        required this.name,
+        required this.surname,
+        required this.work,
+        required this.image,
+        required this.bio,
+        required this.phone,
+        required this.isLiked,
+        required this.onEditContact});
 
   @override
   State<ContactField> createState() => _ContactFieldState();
@@ -66,7 +66,14 @@ class _ContactFieldState extends State<ContactField> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const LikedContacts(),
+              LikedContacts(
+                contact: Contact(widget.id, widget.name, widget.surname,
+                    widget.work, widget.image, widget.bio, widget.phone, false),
+                onEditContact: (Contact _contact) {
+                  widget.onEditContact(_contact);
+                },
+                isLiked: widget.isLiked,
+              ),
               CircleAvatar(
                 backgroundImage: AssetImage(widget.image),
                 radius: 30,
